@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     path: "shared",
     loadChildren: () =>
       import("./shared/shared.module").then((m) => m.SharedModule)
-  }
+  },
+  {path: "**", component: NotFoundComponent}
 ];
 
 @NgModule({
