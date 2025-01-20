@@ -1,0 +1,15 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-left: 15px;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  

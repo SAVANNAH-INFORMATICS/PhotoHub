@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  {
-    path: '', redirectTo: '/authentication/login', pathMatch: 'full'
-  },
+  // {
+  //   path: '', redirectTo: '/authentication/login', pathMatch: 'full'
+  // },
   {
     path: "authentication",
     // component: LoginComponent,
