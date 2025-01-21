@@ -10,6 +10,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserModule } from './user/user.module';
+import { AlbumModule } from './album/album.module';
+import { PhotoModule } from './photo/photo.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     AuthenticationModule,
     DashboardModule,
-    SharedModule
+    SharedModule,
+    UserModule,
+    AlbumModule,
+    PhotoModule
   ],
   providers: [
     provideAnimationsAsync()
