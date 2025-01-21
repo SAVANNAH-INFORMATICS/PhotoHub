@@ -5,7 +5,7 @@ import { AlbumListComponent } from './album-list/album-list.component';
 
 const routes: Routes = [
 {path: "albumdetails", component: AlbumDetailComponent},
-{path: "albums", component: AlbumListComponent}
+{path: "album-list", component: AlbumListComponent}
 ];
 
 @NgModule({

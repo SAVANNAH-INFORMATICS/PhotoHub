@@ -14,12 +14,12 @@ const routes: Routes = [
       import("./authentication/authentication.module").then((m) => m.AuthenticationModule),
   },
   {
-    path: "user",
+    path: "users",
     loadChildren: () =>
       import("./user/user.module").then((m) => m.UserModule)
   },
   {
-    path: "album",
+    path: "albums",
     loadChildren: () =>
       import("./album/album.module").then((m) => m.AlbumModule)
   },
