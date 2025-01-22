@@ -1,1 +1,13 @@
-<p>user-detail works!</p>
+<mat-card class="user-detail-card">
+    <mat-card-header>
+      <mat-card-title>User Details</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content *ngIf="user">
+      <div><strong>Name:</strong> {{ user.name }}</div>
+      <div><strong>Email:</strong> {{ user.email }}</div>
+      <div><strong>Phone:</strong> {{ user.phone }}</div>
+      <div><strong>Website:</strong> {{ user.website }}</div>
+    </mat-card-content>
+  </mat-card>
+  

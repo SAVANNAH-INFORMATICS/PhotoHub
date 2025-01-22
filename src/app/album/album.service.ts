@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PhotoService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/photos';
+export class AlbumService {
+  private apiUrl = 'https://jsonplaceholder.typicode.com/albums';
 
   constructor(private http: HttpClient) {}
 
-  getPhotos(): Observable<any[]> {
+  getAlbums(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getPhotoById(id: string | null): Observable<any> {
+  getAlbumById(id: string | null): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

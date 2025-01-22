@@ -1,1 +1,11 @@
-<p>photo-detail works!</p>
+<mat-card class="photo-detail-card">
+    <mat-card-header>
+      <mat-card-title>Photo Details</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content *ngIf="photo">
+      <div><img [src]="photo.url" alt="photo" width="100%"></div>
+      <div><strong>Title:</strong> {{ photo.title }}</div>
+    </mat-card-content>
+  </mat-card>
+  

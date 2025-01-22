@@ -1,1 +1,11 @@
-<p>album-detail works!</p>
+<mat-card class="album-detail-card">
+    <mat-card-header>
+      <mat-card-title>Album Details</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content *ngIf="album">
+      <div><strong>Title:</strong> {{ album.title }}</div>
+      <div><strong>Photos:</strong> {{ album.photos?.length || 0 }}</div>
+    </mat-card-content>
+  </mat-card>
+  

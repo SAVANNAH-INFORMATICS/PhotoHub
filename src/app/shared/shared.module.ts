@@ -5,17 +5,20 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { LoaderComponent } from './loader/loader.component';
 import { ErrorComponent } from './error/error.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
     LoaderComponent,
     ErrorComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }

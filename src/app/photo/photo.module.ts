@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PhotoRoutingModule } from './photo-routing.module';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
   ],
   imports: [
     CommonModule,
-    PhotoRoutingModule
+    PhotoRoutingModule,
+    MaterialModule
   ]
 })
 export class PhotoModule { }

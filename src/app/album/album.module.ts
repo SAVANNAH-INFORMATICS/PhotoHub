@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AlbumRoutingModule } from './album-routing.module';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -11,9 +12,11 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
     AlbumListComponent,
     AlbumDetailComponent
   ],
+  exports: [MaterialModule],
   imports: [
     CommonModule,
-    AlbumRoutingModule
+    AlbumRoutingModule,
+    MaterialModule
   ]
 })
 export class AlbumModule { }
