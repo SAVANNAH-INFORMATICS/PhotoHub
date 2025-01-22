@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { UserModule } from './user/user.module';
 import { AlbumModule } from './album/album.module';
 import { PhotoModule } from './photo/photo.module';
+import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { PhotoModule } from './photo/photo.module';
     SharedModule,
     UserModule,
     AlbumModule,
-    PhotoModule
+    PhotoModule,
+    MaterialModule
   ],
   providers: [
     provideAnimationsAsync()
