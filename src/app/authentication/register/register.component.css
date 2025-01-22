@@ -1,60 +1,58 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  .login-card {
-    background: #fff;
+.register-card {
+    background: rgba(255, 255, 255, 0.85);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 1rem;
     font-size: 1.8rem;
     color: #333;
-  }
-  
-  .form-group {
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
+}
+
+.form-group {
+    width: 48%;
     text-align: left;
-  }
-  
-  label {
+}
+
+label {
     font-size: 0.9rem;
     color: #555;
     display: block;
     margin-bottom: 0.5rem;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
-  }
-  
-  input:focus {
+}
+
+input:focus {
     border-color: #007bff;
-  }
-  
-  small {
+}
+
+small {
     color: red;
     font-size: 0.8rem;
     display: block;
     margin-top: 0.5rem;
-  }
-  
-  .btn-login {
+}
+
+.btn-register {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -63,37 +61,25 @@
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
-  }
-  
-  .btn-login:disabled {
+    margin-top: 1.5rem;
+}
+
+.btn-register:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-  }
-  
-  .register-link {
+}
+
+.login-link {
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #555;
-  }
-  
-  .register-link a {
+}
+
+.login-link a {
     color: #007bff;
     text-decoration: none;
-  }
-  
-  .register-link a:hover {
+}
+
+.login-link a:hover {
     text-decoration: underline;
-  }
- 
-  
-  /* .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    background-image: url('../../../assets/images/p1.jpg'); 
-    background-size: cover;
-    background-position: center;
-  }
-   */
+}
