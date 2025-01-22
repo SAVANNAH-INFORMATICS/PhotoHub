@@ -1,0 +1,16 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 16px;
+  }
+  
+  mat-card {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 16px;
+  }
+  
