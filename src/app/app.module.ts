@@ -13,14 +13,15 @@ import { FooterComponent } from './footer/footer.component';
 import { UserModule } from './user/user.module';
 import { AlbumModule } from './album/album.module';
 import { PhotoModule } from './photo/photo.module';
-
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { tokenInterceptor } from './Services/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,11 +31,12 @@ import { PhotoModule } from './photo/photo.module';
     SharedModule,
     UserModule,
     AlbumModule,
-    PhotoModule
+    PhotoModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideHttpClient(withInterceptors([tokenInterceptor])),
+    provideAnimationsAsync(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
