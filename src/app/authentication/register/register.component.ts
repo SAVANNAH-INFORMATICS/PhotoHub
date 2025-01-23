@@ -45,14 +45,19 @@ export class RegisterComponent {
         next: (response) => {
           this.snackbar.open(response.message, "X", {
             horizontalPosition: 'center',
-            verticalPosition: 'top',
+            verticalPosition: 'bottom',
             duration: 3000
           })
           this.router.navigate(['/authentication/login']);
         },
         error: (error) => {
           console.error('Registration failed', error);
-          alert('There was an error during registration. Please try again.');
+          this.snackbar.open('There was an error during registration. Please try again.', "X", {
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            duration: 3000
+          })
+       //   alert('There was an error during registration. Please try again.');
         },
       });
     }
