@@ -10,6 +10,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import  {MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 
@@ -20,7 +25,19 @@ import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [],
   exports:[ 
-    MatCardModule, MatListModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule, MatPaginatorModule, MatTableModule, MatSortModule],
+    MatCardModule, 
+    MatListModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatProgressSpinnerModule, 
+    MatPaginatorModule, 
+    MatTableModule, 
+    MatSortModule, 
+    MatTooltipModule, 
+    MatInputModule,
+    MatFormFieldModule,
+    MatToolbarModule
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -33,6 +50,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatToolbarModule
     
   ]
 })

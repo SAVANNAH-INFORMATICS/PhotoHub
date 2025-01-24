@@ -1,11 +1,39 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span>View Photo details</span>
+      <span class="spacer"></span>
+      
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
 <mat-card class="photo-detail-card">
-    <mat-card-header>
-      <mat-card-title>Photo Details</mat-card-title>
-    </mat-card-header>
-  
-    <mat-card-content *ngIf="photo">
-      <div><img [src]="photo.url" alt="photo" width="100%"></div>
-      <div><strong>Title:</strong> {{ photo.title }}</div>
-    </mat-card-content>
-  </mat-card>
-  
+  <form [formGroup]="updateForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Photo Id</mat-label>
+      <input matInput formControlName="id" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Album Id</mat-label>
+      <input matInput formControlName="albumId" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Image Url</mat-label>
+      <input matInput formControlName="url" readonly>
+    </mat-form-field>
+  </form>
+
+
+</mat-card>
+
+<div align ="center">
+  <button mat-raised-button color="primary">Update</button>
+  <button mat-icon-button mat-dialog-close color="accent">Close</button>
+</div>

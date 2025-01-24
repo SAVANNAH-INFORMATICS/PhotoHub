@@ -14,7 +14,14 @@ export class PhotoService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getPhotoById(id: string | null): Observable<any> {
+  getPhotoById(id: any): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  //get all photos
+  getAllPhotos():Observable<any[]> {
+    const getUrl = this.apiUrl;
+
+    return this.http.get<any[]>(getUrl);
   }
 }

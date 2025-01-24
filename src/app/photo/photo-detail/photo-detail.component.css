@@ -5,12 +5,16 @@
     padding: 20px;
   }
   
-  mat-card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+  form {
+    width: 100%;
   }
-  
-  img {
-    max-width: 100%;
+  mat-form-field {
+    width: 50%;
+    padding: 5px;
   }
-  
+
+  .mat-toolbar{
+    margin: 0px;
+    width: auto;
+    margin-bottom: 10px;
+}

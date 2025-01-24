@@ -1,20 +1,10 @@
 .album-container{
   background-color: #7224a3;
+}.user-container {
+  background-color: #7224a3;
+  
 }
-.album-list-card {
-    width: 80%;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-  }
-  
-  mat-list-item {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  mat-list-item:hover {
-    background-color: #f0f0f0;
-  }
-  
+mat-card {
+  width: 98%;
+  margin: auto;
+}
