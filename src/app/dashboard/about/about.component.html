@@ -1,19 +1,65 @@
 <div class="about-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>About PhotoHub</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          Welcome to PhotoHub! We are your go-to platform for exploring, sharing, and managing photos. Whether you want to 
-          create albums, browse user collections, or find inspiration, PhotoHub is here to provide a seamless experience. 
-          Our mission is to bring people together through the power of photography.
-        </p>
-        <p>
-          At PhotoHub, creativity meets functionality. Start your journey with us today and become a part of a vibrant 
-          community of photo enthusiasts!
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
+  <mat-card>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- <img src="../../../assets/images/Lap1.jpg" class="d-block w-100" alt="..."> -->
+          <div class="card">
+            <img src="../../../assets/images/Lap1.jpg" class="d-block w-100 img-fluid" alt="..." height="100px">
+            <div class="card-body">
+              <h5 class="card-title">Welcome to PhotoHub</h5>
+              <p>
+                We are your go-to platform for exploring, sharing, and managing photos. Whether you
+                want to
+                create albums, browse user collections, or find inspiration, PhotoHub is here to provide a seamless
+                experience.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card">
+            <img src="../../../assets/images/Ab2.jpg" class="d-block w-100 img-fluid" alt="..." height="100px">
+            <div class="card-body">
+              <h5 class="card-title">A Hub for teamwork & Collaboration</h5>
+              <p>
+                At PhotoHub, creativity meets functionality. Start your journey with us today and become a part of a
+                vibrant
+                community of photo enthusiasts!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card">
+            <img src="../../../assets/images/Hub3.jpg" class="d-block w-100 img-fluid" alt="..." height="100px">
+            <div class="card-body">
+              <h5 class="card-title">World wide photohub</h5>
+              <p>
+                Explore worldwide photography at PhotoHub! Our mission is to bring people together through the power of photography.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </mat-card>
+</div>

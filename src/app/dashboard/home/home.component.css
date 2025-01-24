@@ -4,12 +4,14 @@
     align-items: center;
     height: 100vh;
     padding: 16px;
+    background: #7224a3;
   }
   
   mat-card {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     padding: 16px;
+    background: #a06fbe;;
   }
   
   .home-links {
@@ -24,11 +26,13 @@
     text-align: center;
     padding: 16px;
     cursor: pointer;
+
   }
   
   .link-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-4px);
     transition: 0.3s;
+    background: #7224a3;
   }
   

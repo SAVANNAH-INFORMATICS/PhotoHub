@@ -13,7 +13,23 @@
     font-weight: bold;
   }
 
-  /* .container-fluid{
-    background-color: #2C3E50;
-  } */
-  
+  .nav-link {
+    color: blueviolet;
+  }
+  a {
+    color: blueviolet;
+  }
+  .navbar-nav {
+    color: blueviolet;
+  }
+  .collapse  ul li a{
+    color: blueviolet;
+    
+  }
+  .container-fluid .navbar-brand {
+    color: #f39c12;
+  }
+  .active{
+    font-size: 18px;
+    font-weight: bold;
+}

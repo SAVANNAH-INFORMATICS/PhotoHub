@@ -1,11 +1,17 @@
+.register-container {
+    background-color: #7224a3;
+}
+
 .register-card {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
+    background: #e1a3f5;
+    padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
+    width: 50%;
     text-align: center;
+    margin: auto;
+    margin-top: 5%;
+
 }
 
 h1 {
@@ -53,14 +59,15 @@ small {
 }
 
 .btn-register {
-    background-color: #007bff;
+    background-color: #7224a3;
     color: #fff;
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
+    margin: auto;
     margin-top: 1.5rem;
 }
 
@@ -81,5 +88,6 @@ small {
 }
 
 .login-link a:hover {
+    color: #7224a3;
     text-decoration: underline;
 }
