@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     padding: 16px;
+    background-color: #7224a3;
   }
   
   mat-card {

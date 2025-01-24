@@ -7,6 +7,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MaterialModule } from '../material/material.module';
 
 
+
 @NgModule({
   declarations: [
     UserListComponent,
@@ -16,7 +17,10 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     UserRoutingModule,
     MaterialModule
-  
+ 
+  ],
+  exports: [
+    MaterialModule
   ]
 })
 export class UserModule { }
