@@ -67,7 +67,7 @@ export class UserListComponent implements OnInit {
       exitAnimationDuration: '500ms',
       width: '60%',
       data: element,
-      disableClose: true // Prevents closing on clicking outside
+      disableClose: false
 
     })
 
