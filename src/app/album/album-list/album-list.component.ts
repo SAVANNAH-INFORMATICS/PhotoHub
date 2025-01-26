@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlbumDetailComponent } from '../album-detail/album-detail.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-album-list',
@@ -31,7 +32,8 @@ export class AlbumListComponent implements OnInit {
   constructor(
     private albumService: AlbumService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -39,17 +41,22 @@ export class AlbumListComponent implements OnInit {
   }
 
   loadAlbums(): void {
-    this.albumService.getAlbums().subscribe((data: any[]) => {
-      this.albums = data;
-      console.log("Album Data : ", data);
-      this.dataSource = new MatTableDataSource(data)
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
-  }
-
-  viewAlbum(album: any): void {
-    this.router.navigate(['/album', album.id]);
+    if (localStorage.getItem('authToken')) {
+      this.albumService.getAlbums().subscribe((data: any[]) => {
+        this.albums = data;
+        console.log("Album Data : ", data);
+        this.dataSource = new MatTableDataSource(data)
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    } else {
+      this.router.navigate(['authentication/login']);
+      this.snackbar.open("You are not authorized to access this page.", "X", {
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center',
+        duration: 3000
+      });
+    }
   }
 
   openDialog(element: any) {
@@ -58,19 +65,12 @@ export class AlbumListComponent implements OnInit {
       exitAnimationDuration: '500ms',
       width: '60%',
       data: element,
-      disableClose: false
+      disableClose: false,
+      position: {
+        top: '5%'
+      }
 
     })
-
-    dialogOpen.afterClosed().subscribe(
-      //  (val:any)=>{
-      //    if(val){
-      //      this.getAllBusinessAccounts()
-      //    }
-
-      //  }
-    )
-
   }
 
 }

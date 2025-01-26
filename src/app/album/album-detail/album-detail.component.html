@@ -1,11 +1,35 @@
-<mat-card class="album-detail-card">
-    <mat-card-header>
-      <mat-card-title>Album Details</mat-card-title>
-    </mat-card-header>
-  
-    <mat-card-content *ngIf="album">
-      <div><strong>Title:</strong> {{ album.title }}</div>
-      <div><strong>Photos:</strong> {{ album.photos?.length || 0 }}</div>
-    </mat-card-content>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>View Album details</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<mat-dialog-content class="mat-typography">
+
+  <mat-card class="photo-detail-card">
+    <form [formGroup]="albumForm">
+      <mat-form-field appearance="outline">
+        <mat-label>User Id</mat-label>
+        <input matInput formControlName="userId" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" readonly>
+      </mat-form-field>
+
+    </form>
   </mat-card>
-  
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="warn" mat-dialog-close style="background: #7224a3">
+    Close
+  </button>
+</mat-dialog-actions>

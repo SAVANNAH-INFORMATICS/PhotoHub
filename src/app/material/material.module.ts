@@ -14,6 +14,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -36,7 +38,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTooltipModule, 
     MatInputModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    
     
   ]
 })

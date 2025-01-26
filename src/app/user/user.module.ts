@@ -5,6 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     UserRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
  
   ],
   exports: [

@@ -1,13 +1,82 @@
-<mat-card class="user-detail-card">
-    <mat-card-header>
-      <mat-card-title>User Details</mat-card-title>
-    </mat-card-header>
-  
-    <mat-card-content *ngIf="user">
-      <div><strong>Name:</strong> {{ user.name }}</div>
-      <div><strong>Email:</strong> {{ user.email }}</div>
-      <div><strong>Phone:</strong> {{ user.phone }}</div>
-      <div><strong>Website:</strong> {{ user.website }}</div>
-    </mat-card-content>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>View User details</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<mat-dialog-content class="mat-typography">
+
+  <mat-card class="photo-detail-card">
+    <form [formGroup]="userForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="username" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Street</mat-label>
+        <input matInput formControlName="street" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Suite</mat-label>
+        <input matInput formControlName="suite" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Zipcode</mat-label>
+        <input matInput formControlName="zipcode" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Geolocation</mat-label>
+        <input matInput formControlName="geo" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput formControlName="company" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Catch Phrase</mat-label>
+        <input matInput formControlName="catchPhrase" readonly>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Company Bs</mat-label>
+        <input matInput formControlName="bs" readonly>
+      </mat-form-field>
+    </form>
   </mat-card>
-  
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button mat-dialog-close style="background: #7224a3;">
+    Close
+  </button>
+</mat-dialog-actions>

@@ -24,4 +24,11 @@ export class PhotoService {
 
     return this.http.get<any[]>(getUrl);
   }
+
+  //update photo here
+  updatePhotodetails(updateData: any, photoId: number): Observable<any>{
+    const updateUrl = this.apiUrl + '/'+  photoId;
+
+    return this.http.put<any>(updateUrl, updateData);
+  }
 }

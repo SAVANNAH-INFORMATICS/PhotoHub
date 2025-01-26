@@ -1,12 +1,24 @@
-.user-detail-card {
-    width: 80%;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-  }
-  
-  mat-card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
+.mat-toolbar {
+  margin: 0px;
+  width: auto;
+  margin-bottom: 10px;
+  background: #7224a3
+}
+
+mat-form-field {
+  padding: 5px;
+}
+
+.mat-toolbar {
+  margin: 0px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  padding: 5px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

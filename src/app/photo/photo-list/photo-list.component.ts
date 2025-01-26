@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-photo-list',
@@ -32,7 +33,8 @@ export class PhotoListComponent {
     private photoService: PhotoService,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -41,30 +43,45 @@ export class PhotoListComponent {
 
   //get all photos
   allPhotos() {
-    this.photoService.getAllPhotos().subscribe(
-      (resp: any) => {
-        console.log("Photo details : ", resp);
-        this.dataSource = new MatTableDataSource(resp)
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      }
-    );
+    if (localStorage.getItem('authToken')) {
+      this.photoService.getAllPhotos().subscribe(
+        (resp: any) => {
+          console.log("Photo details : ", resp);
+          this.dataSource = new MatTableDataSource(resp)
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      );
+    } else {
+      this.router.navigate(['authentication/login']);
+      this.snackbar.open("You are not authorized to access this page.", "X", {
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center',
+        duration: 3000
+      });
+    }
   }
 
+  //Open the dialog here
   openDialog(element: any) {
     const dialogOpen = this.dialog.open(PhotoDetailComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
       width: '60%',
       data: element,
-      disableClose: false
+      disableClose: false,
+      position: {
+        top: '5%'
+      }
+    });
+    dialogOpen.afterClosed().subscribe(
+      (val: any) => {
+        if (val) {
+          this.allPhotos()
+        }
 
-    })
+      }
+    )
   }
 
 }
-
-// const photoId = this.route.snapshot.paramMap.get('id');
-// this.photoService.getPhotoById(photoId).subscribe((data) => {
-//   this.photos = data;
-// });

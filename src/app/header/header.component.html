@@ -7,20 +7,32 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Home</a>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" routerLink="/dashboard/home" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >About</a>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link" routerLink="/dashboard/about" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/users/userlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Users</a>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" routerLink="/users/userlist" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Users</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/albums/album-list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Albums</a>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" routerLink="/albums/album-list" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Albums</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard/contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Contact-us</a>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" routerLink="/photo/photos" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Photos</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link" routerLink="/dashboard/contact" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Contact-us</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
         </li>
       </ul>
     </div>

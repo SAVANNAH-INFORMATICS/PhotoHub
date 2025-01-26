@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -39,7 +40,7 @@ export class UserListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-
+    private snackbar: MatSnackBar,
     private dialog: MatDialog
   ) { }
 
@@ -48,38 +49,36 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(): void {
-    this.userService.getUsers().subscribe((data: any[]) => {
-      this.users = data;
-      console.log("User Data : ", data);
-      this.dataSource = new MatTableDataSource(data)
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    if (localStorage.getItem('authToken')) {
+      this.userService.getUsers().subscribe((data: any[]) => {
+        this.users = data;
+        console.log("User Data : ", data);
+        this.dataSource = new MatTableDataSource(data)
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    } else {
+      this.router.navigate(['authentication/login']);
+      this.snackbar.open("You are not authorized to access this page.", "X", {
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center',
+        duration: 3000
+      });
+    }
   }
 
-  viewUserDetails(user: any): void {
-    this.router.navigate(['/users/user-details', user.id]);
-  }
 
+  //Open dialog here
   openDialog(element: any) {
     const dialogOpen = this.dialog.open(UserDetailComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
       width: '60%',
       data: element,
-      disableClose: false
-
-    })
-
-    dialogOpen.afterClosed().subscribe(
-      //  (val:any)=>{
-      //    if(val){
-      //      this.getAllBusinessAccounts()
-      //    }
-
-      //  }
-    )
-
+      disableClose: false,
+      position: {
+        top: '5%'
+      }
+    });
   }
-
 }

@@ -5,5 +5,8 @@
 mat-card {
     width: 98%;
     margin: auto;
-  }
-  
+}
+
+button {
+    color: #7224a3;
+}

@@ -1,10 +1,4 @@
-.photo-detail-card {
-    width: 80%;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-  }
-  
+
   form {
     width: 100%;
   }
@@ -17,4 +11,8 @@
     margin: 0px;
     width: auto;
     margin-bottom: 10px;
+    background: #7224a3
+}
+.spacer {
+  flex: 1 1 auto;
 }
