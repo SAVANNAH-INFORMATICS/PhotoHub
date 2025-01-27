@@ -106,20 +106,45 @@ Update Environment Variables
 Ensure the backend URL in the frontend matches the deployed backend server URL.
 
 
-## 5. APPLICATION STRUCTURE
+## 4. APPLICATION STRUCTURE
+## a. Frontend
+
+## Modules:
+App Module(Main Module), Authentication, Users, Photos, Albums, Shared, CoreModule
+
+## Components:
+LoginComponent-Used to login a registered user through email/username & password validation, also stores the JWT token in local storage.
+RegisterComponent- Used to signup a new user
+LogoutComponents: Signs out a user out of the system and clears the token stored in local storage.
+LandingPageComponent: Showcase information about the PhotoHub, accessible by everyone who visits the website
+HomeComponent: Offers easy navigation to Users, Albums and Photos Modules.
+UserListComponent and UserDetailsComponent: Displays the total number of users and their details. 
+AlbumListComponent & AlbumDetailsComponents: Shows the total numbers of albums and their details.
+PhotoListComponent & PhotoDetailsComponents: Displays the various photo ids and other details ,,also provides an option for updating the photo title.
+AboutComponent:
+ContactComponent:
+NotFoundComponent:
+FooterComponent:
+HeaderComponent: Contains navigations links for home, about, albums, users, photos, contact us and logout components.
 
 
+## Services
+AuthService, UserService, PhotoService,AlbumService
+
+## Routing
 
 
+## b. Backend
+Routes:
+Controllers:
+Middleware:
 
 
+## 5. API DETAILS
 
-
-
-
-
-
-
+## Authentication API
+Login: "http://localhost:8080/user/login",
+Register: "http://localhost:8080/user/signup
 
 
 

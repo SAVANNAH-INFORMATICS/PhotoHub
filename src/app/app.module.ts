@@ -14,12 +14,11 @@ import { UserModule } from './user/user.module';
 import { AlbumModule } from './album/album.module';
 import { PhotoModule } from './photo/photo.module';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { tokenInterceptor } from './Services/token.interceptor';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
 
 
 
-const ngxUiLoaderConfig: NgxUiLoaderConfig ={
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading ....",
   textColor: "#FFFFFF",
   textPosition: "center-center",
@@ -50,9 +49,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig ={
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [
-    provideHttpClient(withInterceptors([tokenInterceptor])),
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

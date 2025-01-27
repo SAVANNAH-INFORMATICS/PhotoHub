@@ -2,7 +2,8 @@ export const environment = {
     production: false,
 
     apiUrl: "http://localhost:8080/user",
-    albumsApiUrl: "http://localhost:8080/api/albums",
-    photosApiUrl: "'https://jsonplaceholder.typicode.com/photos';",
+    photosApiUrl: "https://jsonplaceholder.typicode.com/photos",
+    albumsApiUrl: "https://jsonplaceholder.typicode.com/albums",
+    usersApiUrl:  "https://jsonplaceholder.typicode.com/users"
 
 };

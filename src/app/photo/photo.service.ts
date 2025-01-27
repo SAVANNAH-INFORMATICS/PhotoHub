@@ -7,32 +7,33 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class PhotoService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/photos';
+  //private apiUrl = 'https://jsonplaceholder.typicode.com/photos';
 
   constructor(
     private http: HttpClient,
-    
-  ) {}
+
+  ) { }
 
   getPhotos(): Observable<any[]> {
-    const apiUrl= environment.photosApiUrl
-    return this.http.get<any[]>(this.apiUrl);
+    const apiUrl = environment.photosApiUrl
+    return this.http.get<any[]>(apiUrl);
   }
 
   getPhotoById(id: any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+    const apiUrl = environment.photosApiUrl
+    return this.http.get<any>(`${apiUrl}/${id}`);
   }
 
   //get all photos
-  getAllPhotos():Observable<any[]> {
-    const getUrl = this.apiUrl;
-
-    return this.http.get<any[]>(getUrl);
+  getAllPhotos(): Observable<any[]> {
+    const apiUrl = environment.photosApiUrl
+    return this.http.get<any[]>(apiUrl);
   }
 
   //update photo here
-  updatePhotodetails(updateData: any, photoId: number): Observable<any>{
-    const updateUrl = this.apiUrl + '/'+  photoId;
+  updatePhotodetails(updateData: any, photoId: number): Observable<any> {
+    const apiUrl= environment.photosApiUrl
+    const updateUrl = apiUrl + '/' + photoId;
 
     return this.http.put<any>(updateUrl, updateData);
   }
