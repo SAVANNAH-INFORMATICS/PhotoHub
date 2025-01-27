@@ -1,5 +1,15 @@
 # PhotoSphere
 
+
+
+Framework: Angular 17.3.11
+HTML5, CSS3, TypeScript
+UI Library: Angular Material, Boostrap
+Loader- Ngx-Ui-Loader
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
 
 ## Development server

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +15,11 @@ export class RegisterComponent {
   passwordMismatch = false;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private snackbar: MatSnackBar,
-    private authService: AuthService, 
-    private router: Router) {
+    private authService: AuthService,
+    private router: Router,
+    private ngxLoader: NgxUiLoaderService) {
     this.registerForm = this.fb.group(
       {
         name: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,10 +41,12 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    this.ngxLoader.start();
     if (this.registerForm.valid) {
       const { name, email, password } = this.registerForm.value;
       this.authService.register(name, email, password).subscribe({
         next: (response) => {
+          this.ngxLoader.stop();
           this.snackbar.open(response.message, "X", {
             horizontalPosition: 'center',
             verticalPosition: 'bottom',
@@ -51,13 +55,13 @@ export class RegisterComponent {
           this.router.navigate(['/authentication/login']);
         },
         error: (error) => {
+          this.ngxLoader.stop();
           console.error('Registration failed', error);
           this.snackbar.open('There was an error during registration. Please try again.', "X", {
             horizontalPosition: 'center',
             verticalPosition: 'bottom',
             duration: 3000
           })
-       //   alert('There was an error during registration. Please try again.');
         },
       });
     }

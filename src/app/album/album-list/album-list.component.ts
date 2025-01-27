@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlbumDetailComponent } from '../album-detail/album-detail.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-album-list',
@@ -33,7 +34,8 @@ export class AlbumListComponent implements OnInit {
     private albumService: AlbumService,
     private router: Router,
     private dialog: MatDialog,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private ngxLoader: NgxUiLoaderService
   ) { }
 
   ngOnInit(): void {
@@ -41,8 +43,10 @@ export class AlbumListComponent implements OnInit {
   }
 
   loadAlbums(): void {
+    this.ngxLoader.start();
     if (localStorage.getItem('authToken')) {
       this.albumService.getAlbums().subscribe((data: any[]) => {
+        this.ngxLoader.stop();
         this.albums = data;
         console.log("Album Data : ", data);
         this.dataSource = new MatTableDataSource(data)
@@ -50,6 +54,7 @@ export class AlbumListComponent implements OnInit {
         this.dataSource.sort = this.sort;
       });
     } else {
+      this.ngxLoader.stop();
       this.router.navigate(['authentication/login']);
       this.snackbar.open("You are not authorized to access this page.", "X", {
         verticalPosition: 'bottom',
@@ -60,6 +65,7 @@ export class AlbumListComponent implements OnInit {
   }
 
   openDialog(element: any) {
+    this.ngxLoader.start();
     const dialogOpen = this.dialog.open(AlbumDetailComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
@@ -69,8 +75,8 @@ export class AlbumListComponent implements OnInit {
       position: {
         top: '5%'
       }
-
     })
+    this.ngxLoader.stop();
   }
 
 }

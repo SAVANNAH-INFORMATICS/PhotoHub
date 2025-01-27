@@ -6,20 +6,20 @@ import { Router } from '@angular/router';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent implements OnInit{
+export class LandingPageComponent implements OnInit {
 
-  // private router: Router = new Router;
- 
+
   constructor(
     private router: Router,
 
-  ){}
+  ) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  openLogin(){
+  openLogin() {
+
     this.router.navigateByUrl('../authentication/login')
-      }
+  }
 }

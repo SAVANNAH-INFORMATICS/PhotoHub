@@ -4,6 +4,7 @@ import { PhotoService } from '../photo.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-photo-detail',
@@ -21,7 +22,8 @@ export class PhotoDetailComponent implements OnInit {
     private formBuilder: FormBuilder,
     private service: PhotoService,
     private snackbar: MatSnackBar,
-    private dialogRef: MatDialogRef<PhotoDetailComponent>
+    private dialogRef: MatDialogRef<PhotoDetailComponent>,
+    private ngxLoader: NgxUiLoaderService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class PhotoDetailComponent implements OnInit {
   }
   //update photo details here
   updatePhoto() {
+    this.ngxLoader.start();
     let updateData = this.updateForm.value;
     delete updateData.id;
 
@@ -46,12 +49,14 @@ export class PhotoDetailComponent implements OnInit {
         console.log(resp);
         this.dialogRef.close();
         if (resp.title === updateData.title) {
+          this.ngxLoader.stop();
           this.snackbar.open("Photo details updated Successfully", "X", {
             verticalPosition: 'bottom',
             horizontalPosition: 'center',
             duration: 3000
           });
         } else {
+          this.ngxLoader.stop();
           this.snackbar.open("Error Occured, Try again.", "X", {
             verticalPosition: 'bottom',
             horizontalPosition: 'center',
@@ -60,6 +65,7 @@ export class PhotoDetailComponent implements OnInit {
         }
       },
       (error: any) => {
+        this.ngxLoader.stop();
         console.log(error);
         this.snackbar.open("They system is busy, try later.", "X", {
           verticalPosition: 'bottom',

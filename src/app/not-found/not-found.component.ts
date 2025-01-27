@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,13 @@ import { Router } from '@angular/router';
   styleUrl: './not-found.component.css'
 })
 export class NotFoundComponent {
-  // constructor(private router: Router) {} 
+   constructor(private router: Router,
+    private ngxLoader: NgxUiLoaderService
+   ) {} 
 
   goBack() {
-    // this.router.navigate(['/login']);
+this.ngxLoader.start();
+    this.router.navigate(['/authentication/login']);
+    this.ngxLoader.stop();
   }
 }

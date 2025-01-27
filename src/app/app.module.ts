@@ -15,6 +15,21 @@ import { AlbumModule } from './album/album.module';
 import { PhotoModule } from './photo/photo.module';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from './Services/token.interceptor';
+import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
+
+
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig ={
+  text: "Loading ....",
+  textColor: "#FFFFFF",
+  textPosition: "center-center",
+  bgsColor: "#7b1fa2",
+  fgsColor: "#7b1fa2",
+  fgsType: SPINNER.fadingCircle,
+  fgsSize: 100,
+  hasProgressBar: false
+}
+
 
 @NgModule({
   declarations: [
@@ -32,6 +47,7 @@ import { tokenInterceptor } from './Services/token.interceptor';
     UserModule,
     AlbumModule,
     PhotoModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [
     provideHttpClient(withInterceptors([tokenInterceptor])),

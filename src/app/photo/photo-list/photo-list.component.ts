@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-photo-list',
@@ -34,7 +35,8 @@ export class PhotoListComponent {
     private route: ActivatedRoute,
     private router: Router,
     private dialog: MatDialog,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private ngxLoader: NgxUiLoaderService
   ) { }
 
   ngOnInit(): void {
@@ -43,9 +45,11 @@ export class PhotoListComponent {
 
   //get all photos
   allPhotos() {
+    this.ngxLoader.start();
     if (localStorage.getItem('authToken')) {
       this.photoService.getAllPhotos().subscribe(
         (resp: any) => {
+          this.ngxLoader.stop();
           console.log("Photo details : ", resp);
           this.dataSource = new MatTableDataSource(resp)
           this.dataSource.paginator = this.paginator;
@@ -53,6 +57,7 @@ export class PhotoListComponent {
         }
       );
     } else {
+      this.ngxLoader.stop();
       this.router.navigate(['authentication/login']);
       this.snackbar.open("You are not authorized to access this page.", "X", {
         verticalPosition: 'bottom',
@@ -64,6 +69,7 @@ export class PhotoListComponent {
 
   //Open the dialog here
   openDialog(element: any) {
+    this.ngxLoader.start();
     const dialogOpen = this.dialog.open(PhotoDetailComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
@@ -74,6 +80,7 @@ export class PhotoListComponent {
         top: '5%'
       }
     });
+    this.ngxLoader.stop();
     dialogOpen.afterClosed().subscribe(
       (val: any) => {
         if (val) {

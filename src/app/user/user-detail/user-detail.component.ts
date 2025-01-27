@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 
 
@@ -18,10 +19,12 @@ export class UserDetailComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private ngxLoader: NgxUiLoaderService
   ) { }
 
   ngOnInit(): void {
+this.ngxLoader.start();
     this.userForm = this.formBuilder.group({
       name: [this.data.name],
       username: [this.data.username],
@@ -36,6 +39,7 @@ export class UserDetailComponent implements OnInit {
       company: [this.data.company.name],
       catchPhrase: [this.data.company.catchPhrase],
       bs: [this.data.company.bs]
-    })
+    });
+    this.ngxLoader.stop();
   }
 }

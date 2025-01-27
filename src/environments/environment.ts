@@ -3,6 +3,6 @@ export const environment = {
 
     apiUrl: "http://localhost:8080/user",
     albumsApiUrl: "http://localhost:8080/api/albums",
-    photosApiUrl: "http://localhost:8080/api/photos",
+    photosApiUrl: "'https://jsonplaceholder.typicode.com/photos';",
 
 };

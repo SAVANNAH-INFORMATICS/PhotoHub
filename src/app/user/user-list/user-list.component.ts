@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 
 
@@ -41,7 +42,8 @@ export class UserListComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private snackbar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private ngxLoader: NgxUiLoaderService
   ) { }
 
   ngOnInit(): void {
@@ -49,8 +51,10 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(): void {
+    this.ngxLoader.start();
     if (localStorage.getItem('authToken')) {
       this.userService.getUsers().subscribe((data: any[]) => {
+        this.ngxLoader.stop();
         this.users = data;
         console.log("User Data : ", data);
         this.dataSource = new MatTableDataSource(data)
@@ -58,6 +62,7 @@ export class UserListComponent implements OnInit {
         this.dataSource.sort = this.sort;
       });
     } else {
+      this.ngxLoader.stop();
       this.router.navigate(['authentication/login']);
       this.snackbar.open("You are not authorized to access this page.", "X", {
         verticalPosition: 'bottom',
@@ -70,6 +75,7 @@ export class UserListComponent implements OnInit {
 
   //Open dialog here
   openDialog(element: any) {
+    this.ngxLoader.start();
     const dialogOpen = this.dialog.open(UserDetailComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
@@ -80,5 +86,6 @@ export class UserListComponent implements OnInit {
         top: '5%'
       }
     });
+    this.ngxLoader.stop();
   }
 }
