@@ -77,10 +77,7 @@ CREATE TABLE user (
 ## e. Environment Variables
 Config the .env file in the backend directory with the following variables:
 
-//Server
 PORT = 8080
-
-//Connection
 DB_PORT = 3306
 DB_HOST = localhost
 DB_USERNAME = root
@@ -109,7 +106,8 @@ Update Environment Variables
 Ensure the backend URL in the frontend matches the deployed backend server URL.
 
 
-5. 
+## 5. APPLICATION STRUCTURE
+
 
 
 
