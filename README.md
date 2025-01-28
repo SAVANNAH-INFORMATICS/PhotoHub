@@ -26,7 +26,7 @@ Node.js (version 18.13.0 or higher)
 npm (version 10.3.0 and above): comes with Node.js
 MySQL Database: Ensure a MySQL server is running locally
 
-## b.  Frontend Setuo
+## b.  Frontend Setup
 1. Clone the Repository from GitHub: 
 git clone https://github.com/SAVANNAH-INFORMATICS/PhotoHub.git
 
@@ -77,6 +77,7 @@ The backend API will be accessible at http://localhost:8080.
 ## Modules:
 Main Module, 
 Authentication Module, 
+Dashboard Module,
 Users Module, 
 Photos Module, 
 Albums Module, 
@@ -96,6 +97,9 @@ Has two major components, album-list and album-detail.
 Album-list: Lists the available albums.
 Album-detail: User can view album details.
 
+## Dashboard Module
+Has four main components: About, Home, Contact and landing page
+
 ## Photo Module:
 Has two major components, photo-list and photo-detail.
 Photo-list: Lists the available photo.
@@ -106,8 +110,11 @@ Has two major components, user-list and user-detail.
 User-list: Lists the available users.
 User-detail: User can view user details.
 
-##Material Module
-Contains shared material UI dependency modules
+## Material Module
+Contains shared Angular Material UI dependency modules
+
+## Main Module
+Has three components: Footer, Header and not-found
 
 ## Services
 AuthService, UserService, PhotoService,AlbumService
@@ -115,9 +122,66 @@ AuthService, UserService, PhotoService,AlbumService
 ## Environemets
 Has both production and development environments
 
+## Project Architecture
+
+```mermaid
+graph TD
+    A[Photo Hub] --> B[Frontend]
+    B --> C[app module]
+    B --> D[Album Module]
+    B --> E[Authentication Module]
+    B --> F[Photo Module]
+    B --> G[User Module]
+    C --> H[footer]
+    C --> I[header]
+    C --> J[not found]
+    D --> K[album detail]
+    D --> L[album list]
+    D --> M[album service]
+    E --> N[register]
+    E --> O[login]
+    E --> P[auth service]
+    F --> Q[photo list]
+    F --> R[photo detail]
+    F --> S[photo service]
+    F --> T[contact.html]
+    G --> U[user lis]
+    G --> V[user detail]
+    G --> W[user service]
+```
+
+## User Experience Flow Chart
+
+
+```mermaid
+flowchart LR
+    A[User Visit] --> B[Home Page]
+    B --> C[Login]
+    B --> D[Navigation]
+    D --> E[About]
+    D --> F[Contact]
+    C --> H[Home]
+    C --> I[Photos]
+    C --> J[albums]
+    C --> K[Ussers]
+    C --> L[Logout]
+    H --> M[Photos]
+    H --> N[Photos]
+    H --> O[Photos]
+    I --> P[Photo List]
+    I --> Q[View Details]
+    J --> R[Album List]
+    J --> S[View Details]
+    K --> T[User List]
+    K --> U[View details]
+    L --> V[Home Page]
+```
+
+
+
 ## 5. API DETAILS
 
-## Authentication API
+## Authentication APIs
 Login: "http://localhost:8080/user/login", : Authenticate a user
 Register: "http://localhost:8080/user/signup" : Register a new user
 
