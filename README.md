@@ -155,7 +155,7 @@ graph TD
 
 ```mermaid
 flowchart LR
-    A[User Visit] --> B[Home Page]
+    A[User Visit] --> B[Landing Page]
     B --> C[Login]
     B --> D[Navigation]
     D --> E[About]
