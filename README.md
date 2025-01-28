@@ -2,49 +2,39 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
 
 ## 1. INTRODUCTION
-This project, titled PhotoHub, was developed as part of the Savannah Informatics Frontend Engineer Assessment. PhotoHub is a responsive, full-stack web application designed to manage and view user information, albums, and photos. The application integrates an Angular-based frontend with a Node.js backend for authentication, while user, album, and photo data is dynamically fetched from the JSONPlaceholder API.( https://jsonplaceholder.typicode.com/)
-PhotoHub provides the following core features:
-1.	User Authentication: A secure login and signup system implemented using Node.js. Users can sign up with their full name, email, and password (with confirm password validation) and log in using their email/username and password.
-2.	Dynamic Data Fetching: Real-time data retrieval for users, albums, and photos through the JSONPlaceholder (https://jsonplaceholder.typicode.com/) API, ensuring lightweight and efficient data handling.
-3.	User-Friendly Interface: A polished, responsive frontend built with Angular, optimized for mobile, tablet, and desktop devices.
-4.	CRUD Operations: Support for updating photo information, with changes reflected via PATCH requests to the backend.
-Key Objectives:
-1.	Demonstrate frontend development skills using Angular, including routing, state management, and reusable components.
-2.	Implement backend authentication using Node.js for signup and login functionality.
-3.	Fetch and integrate external data seamlessly from the JSONPlaceholder API.
-4.	Ensure responsiveness, code quality, and deployment readiness of the application.
-This documentation provides a comprehensive overview of PhotoHub, detailing the technologies used, application setup, structure, and implementation details.
+This project, titled PhotoHub, was developed as part of the Savannah Informatics Frontend Engineer Assessment. PhotoHub is a responsive, web application designed to manage and view user information, albums, and photos. The application integrates an Angular-based frontend with a Node.js backend for authentication, while user, album, and photo data is dynamically fetched from the JSONPlaceholder API.( https://jsonplaceholder.typicode.com/)
+
+
+
 
 ## 2. TECHNOLOGIES USED
 ## Frontend-
-Framewok: Angular version 17.3.11
+Framework: Angular version 17.3.11
 Stacks: HTML5, CSS3, TypeScript
-## Backend- 
-Framework: Node JS version 18.13.0 with Express.js,
-Stack: JavaScript
-##Database:
+
+
+## Database:
  MySQL for authentication(Database Name =savannah, table=user), 
-The est of the data is fetched from https://jsonplaceholder.typicode.com/
+The rest of the data is fetched from https://jsonplaceholder.typicode.com/
 
 ## Other libraries/tools:
  Angular Material UI library, Bootstrap
-
 
 ## 3. PROJECT SETUP
 ## a. Prerequisites
 Node.js (version 18.13.0 or higher)
 npm (version 10.3.0 and above): comes with Node.js
-MySQL Database: Ensure a MySQL server is running locally or accessible remotely
+MySQL Database: Ensure a MySQL server is running locally
 
 ## b.  Frontend Setuo
 1. Clone the Repository from GitHub: 
 git clone https://github.com/SAVANNAH-INFORMATICS/PhotoHub.git
 
 2. Install Dependencies all required packages for the Angular application using: 
-npm install
+npm install or npm install --force
 
 3. Run the Application to start the Angular development server:
-npm run or ng serve commands
+npm run or ng serve
 
 The application will be accessible at http://localhost:4200
 
@@ -58,7 +48,7 @@ The build files will be available in the dist/ directory
 using the cd../savannah-backend  command
 
 2. Install dependencies/all required packages for the Node.js server using:
-npm install
+npm install or npm install --force
 
 ## d. Database Configuration
 Ensure the MySQL server is running
@@ -74,94 +64,88 @@ CREATE TABLE user (
   password VARCHAR(255) NOT NULL
 );
 
-## e. Environment Variables
-Config the .env file in the backend directory with the following variables:
-
-PORT = 8080
-DB_PORT = 3306
-DB_HOST = localhost
-DB_USERNAME = root
-DB_PASSWORD =
-DB_NAME = savannah
-
-ACCESS_TOKEN = 0eb58ff228c5706750152837c27d38b1d2905e8be2690e1058453cb00372d70e376686a70606c5a15afe19dc7eb2758579bc302f8ec6886206bdec17692a8828
-
-
 ## f. Run the backend server
 Start the Node.js server:
 npm start
 The backend API will be accessible at http://localhost:8080.
 
-## g. Connecting Frontend to Backend
-Update the API base URL in the Angular frontend application to match the backend URL:
-
-## Production deployment
-Deploy Frontend
-Host the Angular build files on a platform like Vercel or Netlify.
-
-Deploy Backend
-Host the Node.js server on a platform like Heroku, AWS, or any cloud service provider that supports Node.js.
-
-Update Environment Variables
-Ensure the backend URL in the frontend matches the deployed backend server URL.
 
 
 ## 4. APPLICATION STRUCTURE
 ## a. Frontend
 
 ## Modules:
-App Module(Main Module), Authentication, Users, Photos, Albums, Shared, CoreModule
+Main Module, 
+Authentication Module, 
+Users Module, 
+Photos Module, 
+Albums Module, 
+Material Module,
+Shared Module, 
+CoreModule Module
 
-## Components:
-LoginComponent-Used to login a registered user through email/username & password validation, also stores the JWT token in local storage.
-RegisterComponent- Used to signup a new user
-LogoutComponents: Signs out a user out of the system and clears the token stored in local storage.
-LandingPageComponent: Showcase information about the PhotoHub, accessible by everyone who visits the website
-HomeComponent: Offers easy navigation to Users, Albums and Photos Modules.
-UserListComponent and UserDetailsComponent: Displays the total number of users and their details. 
-AlbumListComponent & AlbumDetailsComponents: Shows the total numbers of albums and their details.
-PhotoListComponent & PhotoDetailsComponents: Displays the various photo ids and other details ,,also provides an option for updating the photo title.
-AboutComponent:
-ContactComponent:
-NotFoundComponent:
-FooterComponent:
-HeaderComponent: Contains navigations links for home, about, albums, users, photos, contact us and logout components.
+## Authentication Module:
+Has two major components, register and login.
+Register Component: 
+Name, email, password.
+Login Component:
+email and password.
 
+## Album Module:
+Has two major components, album-list and album-detail.
+Album-list: Lists the available albums.
+Album-detail: User can view album details.
+
+## Photo Module:
+Has two major components, photo-list and photo-detail.
+Photo-list: Lists the available photo.
+Photo-detail: User can view photo details and update photo title.
+
+## Photo Module:
+Has two major components, user-list and user-detail.
+User-list: Lists the available users.
+User-detail: User can view user details.
+
+##Material Module
+Contains shared material UI dependency modules
 
 ## Services
 AuthService, UserService, PhotoService,AlbumService
 
-## Routing
-
-
-## b. Backend
-Routes:
-Controllers:
-Middleware:
-
+## Environemets
+Has both production and development environments
 
 ## 5. API DETAILS
 
 ## Authentication API
-Login: "http://localhost:8080/user/login",
-Register: "http://localhost:8080/user/signup
+Login: "http://localhost:8080/user/login", : Authenticate a user
+Register: "http://localhost:8080/user/signup" : Register a new user
+
+## Users API
+ usersApiUrl:  "https://jsonplaceholder.typicode.com/users"
+Fetch all users: GET/usersApiUrl 
+
+## Albums API
+ albumsApiUrl:  "https://jsonplaceholder.typicode.com/albums"
+ Fetch all albums: GET/albumsApiUrl
+ Fetch albums for a specific user: GET/albumsApiUrl/:userId
+
+ ## Photos API
+  photosApiUrl:  "https://jsonplaceholder.typicode.com/photos"
+  Fetch all photos: GET/photosApiUrl
+  Update photo title/details: PUT/photoApiUrl/photoId
 
 
 
+## 6. TESTING
+Testing ensures the reliability and robustness of the PhotoHub application. This section outlines the tools, frameworks, and steps used to test the frontend and backend components.
 
 
+## Testing tools and frameworks:
+Jasmine- A testing framework for writing unit tests in Angular Applications
+Karma - A test runner used to execute unit tests in multiple environments
+Postman: Used for testing backend APIs
 
-
-
-
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -175,6 +159,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
