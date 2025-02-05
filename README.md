@@ -5,8 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This project, titled PhotoHub, was developed as part of the Savannah Informatics Frontend Engineer Assessment. PhotoHub is a responsive, web application designed to manage and view user information, albums, and photos. The application integrates an Angular-based frontend with a Node.js backend for authentication, while user, album, and photo data is dynamically fetched from the JSONPlaceholder API.( https://jsonplaceholder.typicode.com/)
 
 
-
-
 ## 2. TECHNOLOGIES USED
 ## Frontend-
 Framework: Angular version 17.3.11
@@ -52,7 +50,7 @@ npm install or npm install --force
 
 ## d. Database Configuration
 Ensure the MySQL server is running
-Create a database names savannah and a table named user using the following schema:
+Create a database named savannah and a table named user using the following schema:
 
 CREATE DATABASE savannah;
 USE savannah;

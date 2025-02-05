@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from '../material/material.module';
+import { CinfirmationComponent } from './cinfirmation/cinfirmation.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CinfirmationComponent
   ],
   imports: [
     CommonModule,
